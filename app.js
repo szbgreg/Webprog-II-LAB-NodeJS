@@ -13,6 +13,7 @@ const MySQLStore = require("express-mysql-session")(session);
 const expressLayouts = require("express-ejs-layouts");
 
 var indexRouter = require("./routes/index");
+var databaseRouter = require("./routes/database");
 var usersRouter = require("./routes/users");
 var registerRouter = require("./routes/register");
 var loginRouter = require("./routes/login");
@@ -62,6 +63,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
+app.use("/database", databaseRouter);
 app.use("/users", usersRouter);
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);

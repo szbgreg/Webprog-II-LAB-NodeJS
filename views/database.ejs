@@ -1,0 +1,132 @@
+<div class="container-fluid hero-header bg-light py-2 mb-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-5 mb-3 animated slideInDown">
+                    <span class="text-primary">Süti</span> adatbázis
+                </h1>
+                <p class="text-secondary mb-4">
+                    Böngéssz a finomabbnál finomabb sütik között!
+                    Nézd meg a típusukat, árukat és mentes változataikat is.
+                </p>
+            </div>
+            <div class="col-lg-6 text-center animated fadeIn">
+                <img class="img-fluid animated pulse infinite" style="animation-duration: 3s; max-height: 280px;"
+                    src="/images/cakesv2.png" alt="Süti lista">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4 pb-5">
+    <h1 class="mb-4">Sütik listája</h1>
+
+    <div class="table-responsive shadow-sm rounded-3">
+        <table class="table table-hover table-striped table-light align-middle mb-0">
+            <thead class="table-light border-bottom border-2 border-grey-dark">
+                <tr>
+                    <th class="text-primary" style="width: 30%;">Név</th>
+                    <th class="text-primary" style="width: 15%;">Típus</th>
+                    <th class="text-primary text-center pe-5" style="width: 10%;">Díjazott</th>
+                    <th class="text-primary" style="width: 20%;">Ár / Egység</th>
+                    <th class="text-primary" style="width: 25%;">Mentes</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% sutik.forEach(function(cake) { %>
+                    <tr>
+                        <td class="fw-bold">
+                            <%= cake.nev %>
+                        </td>
+
+                        <td>
+                            <%= cake.tipus %>
+                        </td>
+
+                        <td class="text-center">
+                            <% if(cake.dijazott) { %>
+                                <i class="bi bi-trophy-fill text-warning fs-5 pe-5"
+                                    title="Díjazott volt a Magyarország Tortája versenyen"></i>
+                                <% } %>
+                        </td>
+
+                        <td>
+                            <% cake.arak.forEach(function(ar) { %>
+                                <div><span class="fw-bold">
+                                        <%= ar.ertek %> Ft
+                                    </span> - <%= ar.egyseg %>
+                                </div>
+                                <% }); %>
+                        </td>
+
+                        <td>
+                            <% cake.tartalmak.forEach(function(tartalom) { %>
+                            <% 
+                            const label = mentesMap[tartalom.mentes] || tartalom.mentes;
+                            %>
+                            <span class="badge bg-info text-dark me-1"><%= label %></span>
+                            <% }); %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+
+        </table>
+    </div>
+
+    <!-- Pagination Start -->
+    <div class="d-flex justify-content-center mt-4">
+        <nav aria-label="Süti lista lapozás">
+            <ul class="pagination pagination-lg">
+                <!-- Első oldal -->
+                <% if (pagination.currentPage > 1) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="?oldal=1" aria-label="Első">
+                            <span aria-hidden="true">&laquo;&laquo;</span>
+                        </a>
+                    </li>
+                <% } %>
+
+                <!-- Előző oldal -->
+                <% if (pagination.hasPrevPage) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="?oldal=<%= pagination.prevPage %>" aria-label="Előző">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                <% } %>
+
+                <!-- Oldalszámok -->
+                <% 
+                const startPage = Math.max(1, pagination.currentPage - 2);
+                const endPage = Math.min(pagination.totalPages, pagination.currentPage + 2);
+                %>
+                
+                <% for (let i = startPage; i <= endPage; i++) { %>
+                    <li class="page-item <%= i === pagination.currentPage ? 'active' : '' %>">
+                        <a class="page-link" href="?oldal=<%= i %>"><%= i %></a>
+                    </li>
+                <% } %>
+
+                <!-- Következő oldal -->
+                <% if (pagination.hasNextPage) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="?oldal=<%= pagination.nextPage %>" aria-label="Következő">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                <% } %>
+
+                <!-- Utolsó oldal -->
+                <% if (pagination.currentPage < pagination.totalPages) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="?oldal=<%= pagination.totalPages %>" aria-label="Utolsó">
+                            <span aria-hidden="true">&raquo;&raquo;</span>
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        </nav>
+    </div>
+</div>

@@ -12,6 +12,11 @@
             <a class="nav-item nav-link <%= currentPath === '/' ? 'active' : '' %>" href="/">
                 Főoldal
             </a>
+
+            <a class="nav-item nav-link <%= currentPath === '/database' ? 'active' : '' %>" href="/database">
+                Adatbázis
+            </a>
+
             <a class="nav-item nav-link <%= currentPath === '/users' ? 'active' : '' %>" href="/users">
                 Felhasználók
             </a>
@@ -25,9 +30,9 @@
                         <a class="nav-item nav-link <%= currentPath === '/logout' ? 'active' : '' %>" href="/logout">
                             Kijelentkezés
                         </a>
-                        
+
                         <span class="nav-item nav-link text-muted">
-                           <i class="fas fa-user me-1"></i>
+                            <i class="fas fa-user me-1"></i>
                             Üdv, <%= userName %>!
                         </span>
                         <% } else { %>
