@@ -14,6 +14,7 @@ const expressLayouts = require("express-ejs-layouts");
 
 var indexRouter = require("./routes/index");
 var databaseRouter = require("./routes/database");
+var contactRouter = require("./routes/contact");
 var usersRouter = require("./routes/users");
 var registerRouter = require("./routes/register");
 var loginRouter = require("./routes/login");
@@ -64,6 +65,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/database", databaseRouter);
+app.use("/contact", contactRouter);
 app.use("/users", usersRouter);
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
@@ -83,7 +85,7 @@ app.use(function (err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
   res.status(err.status || 500);
-  res.render("error");
+  res.render("error", { title: "Hiba" });
 });
 
 module.exports = app;
