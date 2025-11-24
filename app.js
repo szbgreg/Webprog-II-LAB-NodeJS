@@ -16,6 +16,7 @@ var indexRouter = require("./routes/index");
 var databaseRouter = require("./routes/database");
 var contactRouter = require("./routes/contact");
 var messagesRouter = require("./routes/messages");
+var crudRouter = require("./routes/crud");
 var usersRouter = require("./routes/users");
 var registerRouter = require("./routes/register");
 var loginRouter = require("./routes/login");
@@ -69,6 +70,7 @@ app.use("/database", databaseRouter);
 app.use("/contact", contactRouter);
 
 app.use("/messages", messagesRouter);
+app.use("/crud/sutik", crudRouter);
 app.use("/users", usersRouter);
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);

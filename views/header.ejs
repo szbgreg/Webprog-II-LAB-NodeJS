@@ -1,12 +1,15 @@
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
     <a href="index.html" class="navbar-brand d-flex align-items-center">
-        <h2 class="m-0 text-primary"><img class="img-fluid me-2" src="img/icon-1.png" alt="" style="width: 45px;">Cuki
-            Cukrászda</h2>
+        <h2 class="m-0 text-primary">
+            <img class="img-fluid me-2" src="img/icon-1.png" alt="" style="width: 45px" />Cuki Cukrászda
+        </h2>
     </a>
+
     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-4 py-lg-0">
             <a class="nav-item nav-link <%= currentPath === '/' ? 'active' : '' %>" href="/">
@@ -25,28 +28,36 @@
                 <a class="nav-item nav-link <%= currentPath === '/messages' ? 'active' : '' %>" href="/messages">
                     Üzenetek
                 </a>
-                <% if (isAdmin) { %>
-                    <a class="nav-item nav-link <%= currentPath === '/admin' ? 'active' : '' %>" href="/admin">
-                        Admin
+                <% } %>
+                    <a class="nav-item nav-link <%= currentPath === '/crud/sutik' ? 'active' : '' %>" href="/crud/sutik">
+                        CRUD
                     </a>
-                    <% } %>
-                        <a class="nav-item nav-link <%= currentPath === '/logout' ? 'active' : '' %>" href="/logout">
-                            Kijelentkezés
-                        </a>
 
-                        <span class="nav-item nav-link text-muted">
-                            <i class="fas fa-user me-1"></i>
-                            Üdv, <%= userName %>!
-                        </span>
-                        <% } else { %>
-                            <a class="nav-item nav-link <%= currentPath === '/login' ? 'active' : '' %>" href="/login">
-                                Belépés
-                            </a>
-                            <a class="nav-item nav-link <%= currentPath === '/register' ? 'active' : '' %>"
-                                href="/register">
-                                Regisztráció
-                            </a>
-                            <% } %>
+                    <% if (isAuth && isAdmin) { %>
+                        <a class="nav-item nav-link <%= currentPath === '/admin' ? 'active' : '' %>" href="/admin">
+                            Admin
+                        </a>
+                        <% } %>
+
+                            <% if (isAuth) { %>
+                                <a class="nav-item nav-link <%= currentPath === '/logout' ? 'active' : '' %>"
+                                    href="/logout">
+                                    Kijelentkezés
+                                </a>
+                                    <span class="nav-item nav-link text-muted">
+                                        <i class="fas fa-user me-1"></i>
+                                        Üdv, <%= userName %>!
+                                    </span>
+                                    <% } else { %>
+                                        <a class="nav-item nav-link <%= currentPath === '/login' ? 'active' : '' %>"
+                                            href="/login">
+                                            Belépés
+                                        </a>
+                                        <a class="nav-item nav-link <%= currentPath === '/register' ? 'active' : '' %>"
+                                            href="/register">
+                                            Regisztráció
+                                        </a>
+                                        <% } %>
         </div>
         <div class="h-100 d-lg-inline-flex align-items-center d-none">
             <a class="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i

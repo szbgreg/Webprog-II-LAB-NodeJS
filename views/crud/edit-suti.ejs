@@ -1,0 +1,102 @@
+<div class="container-fluid hero-header bg-light py-2 mb-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-5 mb-3 animated slideInDown">
+                    <span class="text-primary">CRUD</span> alkalmazás
+                </h1>
+                <p class="text-secondary mb-4">
+                    Itt van lehetőség kezelni a sütik tábla adatait
+                </p>
+            </div>
+            <div class="col-lg-6 text-center animated fadeIn">
+                <img class="img-fluid animated pulse infinite" style="animation-duration: 3s; max-height: 260px;"
+                    src="/images/crud.png" alt="Sütemény crud">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Flash üzenetek -->
+    <div class="row justify-content-center mt-3">
+        <div class="col-lg-8">
+            <% if (typeof messages !=='undefined' && messages.error) { %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <%= messages.error %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                <% } %>
+
+                    <% if (typeof messages !=='undefined' && messages.success) { %>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fas fa-check-circle me-2"></i>
+                            <%= messages.success %>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        <% } %>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow-sm mt-4 mb-5 bg-light">
+                <div class="card-body">
+                    <h4 class="h3 card-title mb-4 text-primary mx-auto">Süti szerkesztése</h4>
+
+                    <form method="post" action="/crud/sutik/<%= suti.id %>/edit">
+                        <div class="mb-3">
+                            <label for="nev" class="form-label">Süti neve</label>
+                            <input type="text" id="nev" name="nev"
+                                class="form-control <%= (typeof errors !== 'undefined' && errors.nev) ? 'is-invalid' : '' %>"
+                                value="<%= (typeof formData !== 'undefined' && formData.nev) ? formData.nev : suti.nev %>"
+                                placeholder="Add meg a süti nevét">
+                            <% if (typeof errors !=='undefined' && errors.nev) { %>
+                                <div class="invalid-feedback">
+                                    <%= errors.nev %>
+                                </div>
+                                <% } %>
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="tipus" class="form-label">Típus</label>
+                            <input type="text" id="tipus" name="tipus"
+                                class="form-control <%= (typeof errors !== 'undefined' && errors.tipus) ? 'is-invalid' : '' %>"
+                                value="<%= (typeof formData !== 'undefined' && formData.tipus) ? formData.tipus : suti.tipus %>"
+                                placeholder="Add meg a süti típusát">
+                            <% if (typeof errors !=='undefined' && errors.tipus) { %>
+                                <div class="invalid-feedback">
+                                    <%= errors.tipus %>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="dijazott" class="form-label">Díjazott</label>
+                            <select id="dijazott" name="dijazott" class="form-select">
+
+                                <option value="0" <%=(typeof formData !=='undefined' && formData.dijazott=='0' )
+                                    ? 'selected' : (suti.dijazott==0 ? 'selected' : '' ) %>>Nem</option>
+                                <option value="1" <%=(typeof formData !=='undefined' && formData.dijazott=='1' )
+                                    ? 'selected' : (suti.dijazott==1 ? 'selected' : '' ) %>>Igen</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-end gap-1 ">
+                            <div>
+                                <a href="/crud/sutik" class="btn btn-outline-secondary"> Vissza a sütikhez
+                                </a>
+                            </div>
+                            <button type="submit" class="btn btn-primary px-4">
+                                Süti módosítása
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
