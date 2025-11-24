@@ -21,11 +21,10 @@
                 Kapcsolat
             </a>
 
-            <a class="nav-item nav-link <%= currentPath === '/users' ? 'active' : '' %>" href="/users">
-                Felhasználók
-            </a>
-
             <% if (isAuth) { %>
+                <a class="nav-item nav-link <%= currentPath === '/messages' ? 'active' : '' %>" href="/messages">
+                    Üzenetek
+                </a>
                 <% if (isAdmin) { %>
                     <a class="nav-item nav-link <%= currentPath === '/admin' ? 'active' : '' %>" href="/admin">
                         Admin
