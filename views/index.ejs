@@ -1,3 +1,19 @@
+<div class="container">
+    <div class="row justify-content-center mt-3">
+        <div class="col-lg-6">
+
+            <% if (typeof messages !=='undefined' && messages.error) { %>
+                <div class="container">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <%= messages.error %>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </div>
+</div>
+
 <!-- Header Start -->
 <div class="container-fluid hero-header bg-light py-5 mb-5">
     <div class="container py-5">
@@ -16,8 +32,7 @@
                 </a>
             </div>
             <div class="col-lg-6 animated fadeIn text-center">
-                <img class="img-fluid animated pulse infinite"
-                    style="animation-duration: 3s; max-height: 450px;"
+                <img class="img-fluid animated pulse infinite" style="animation-duration: 3s; max-height: 450px;"
                     src="/images/homecake.png" alt="Friss sütemény">
             </div>
         </div>
@@ -30,20 +45,25 @@
     <div class="container">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                <img class="img-fluid rounded-3" src="/images/black-forest.png" alt="A Süti Műhelyről" style="max-height: 500px;">
+                <img class="img-fluid rounded-3" src="/images/black-forest.png" alt="A Süti Műhelyről"
+                    style="max-height: 500px;">
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="h-100">
                     <h1 class="display-6 mb-3">Rólunk</h1>
-                    <p class="text-primary fs-5 mb-4">A <b>Cuki Cukrászda</b> – ahol a hagyomány és a kreativitás találkozik</p>
+                    <p class="text-primary fs-5 mb-4">A <b>Cuki Cukrászda</b> – ahol a hagyomány és a kreativitás
+                        találkozik</p>
                     <p>
-                        Cégünk egy kis családi cukrászda, amely évek óta készíti a legfinomabb hagyományos és modern süteményeket.
-                        Küldetésünk, hogy minden édességünkkel egy kis örömöt vigyünk a mindennapokba – legyen szó tortáról, pogácsáról vagy díjnyertes süteményeinkről.
+                        Cégünk egy kis családi cukrászda, amely évek óta készíti a legfinomabb hagyományos és modern
+                        süteményeket.
+                        Küldetésünk, hogy minden édességünkkel egy kis örömöt vigyünk a mindennapokba – legyen szó
+                        tortáról, pogácsáról vagy díjnyertes süteményeinkről.
                     </p>
                     <p class="mb-4">
                         Termékeink között megtalálhatóak <strong>glutén-, laktóz- és cukormentes</strong> finomságok is,
                         hogy mindenki megtalálhassa a kedvencét.
-                        Folyamatosan bővítjük kínálatunkat és új recepteket tesztelünk, hogy vendégeink mindig valami újat kóstolhassanak.
+                        Folyamatosan bővítjük kínálatunkat és új recepteket tesztelünk, hogy vendégeink mindig valami
+                        újat kóstolhassanak.
                     </p>
                     <div class="d-flex align-items-center mb-2">
                         <i class="fa fa-check bg-light text-primary btn-sm-square rounded-circle me-3 fw-bold"></i>
@@ -124,7 +144,8 @@
             <div class="roadmap-item">
                 <div class="roadmap-point"><span></span></div>
                 <h5>2024 – Online rendelés és adatbázis</h5>
-                <span>Elindítottuk weboldalunkat, ahol az összes süteményünk adatbázisból böngészhető – Laravel alapokon.</span>
+                <span>Elindítottuk weboldalunkat, ahol az összes süteményünk adatbázisból böngészhető – Laravel
+                    alapokon.</span>
             </div>
 
         </div>
@@ -153,8 +174,10 @@
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Igen! Vállalunk egyedi tortarendeléseket születésnapra, esküvőre vagy bármilyen különleges alkalomra.
-                                Kérjük, legalább <strong>3 nappal előre</strong> jelezd az igényedet, hogy minden tökéletes legyen!
+                                Igen! Vállalunk egyedi tortarendeléseket születésnapra, esküvőre vagy bármilyen
+                                különleges alkalomra.
+                                Kérjük, legalább <strong>3 nappal előre</strong> jelezd az igényedet, hogy minden
+                                tökéletes legyen!
                             </div>
                         </div>
                     </div>
@@ -169,7 +192,8 @@
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Természetesen! Kínálatunkban számos <strong>mentes sütemény</strong> található – glutén-, laktóz-, tojásmentes és édesítőszerrel készült változatok is.
+                                Természetesen! Kínálatunkban számos <strong>mentes sütemény</strong> található –
+                                glutén-, laktóz-, tojásmentes és édesítőszerrel készült változatok is.
                                 A weboldalunkon a „mentes” jelöléseket is feltüntetjük minden terméknél.
                             </div>
                         </div>
@@ -186,7 +210,8 @@
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 Általában <strong>1–2 munkanapon belül</strong> elkészítjük a rendeléseket.
-                                Nagyobb torták vagy egyedi díszítések esetén ez hosszabb lehet, de minden esetben egyeztetünk e-mailben.
+                                Nagyobb torták vagy egyedi díszítések esetén ez hosszabb lehet, de minden esetben
+                                egyeztetünk e-mailben.
                             </div>
                         </div>
                     </div>
@@ -201,7 +226,8 @@
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Cukrászdánk <strong>Budapest belvárosában</strong> található, a Kossuth utca 15. szám alatt.
+                                Cukrászdánk <strong>Budapest belvárosában</strong> található, a Kossuth utca 15. szám
+                                alatt.
                                 Könnyen megközelíthető tömegközlekedéssel, és a közelben parkolási lehetőség is van.
                             </div>
                         </div>
@@ -217,7 +243,8 @@
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Igen, cukrászdánkban kényelmes, barátságos környezetben fogyaszthatod el a választott süteményedet,
+                                Igen, cukrászdánkban kényelmes, barátságos környezetben fogyaszthatod el a választott
+                                süteményedet,
                                 kávéval vagy teával kiegészítve. Nyitvatartás: <strong>H–Szo: 8:00–18:00</strong>.
                             </div>
                         </div>
@@ -233,8 +260,10 @@
                         <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Az oldalunkon található <strong>Kapcsolat</strong> menüpontban üzenetet küldhetsz nekünk,
-                                vagy írj közvetlenül az <a href="mailto:info@cukicukraszda.hu">info@cukicukraszda.hu</a> címre.
+                                Az oldalunkon található <strong>Kapcsolat</strong> menüpontban üzenetet küldhetsz
+                                nekünk,
+                                vagy írj közvetlenül az <a href="mailto:info@cukicukraszda.hu">info@cukicukraszda.hu</a>
+                                címre.
                                 Igyekszünk minden megkeresésre 24 órán belül válaszolni.
                             </div>
                         </div>

@@ -1,23 +1,64 @@
-<div class="container">
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-1 rounded-lg">
+                    <div class="card-header text-white text-center py-4">
+                        <h3 class="font-weight-light my-2">
+                            <%= title %>
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <% if (typeof messages !=='undefined' && messages.error) { %>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <%= messages.error %>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                            <% } %>
 
-    <div class="row">
-        <div class="col-4 mx-auto">
-            <h1>
-                <%= title %>
-            </h1>
-            <form action="" method="POST">
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Felhasználónév</label>
-                    <input name="username" type="text" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp">
+                                <% if (typeof messages !=='undefined' && messages.success) { %>
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <i class="fas fa-check-circle me-2"></i>
+                                        <%= messages.success %>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                    </div>
+                                    <% } %>
+
+                                        <form action="" method="POST">
+                                            <div class="form-floating mb-3">
+                                                <input name="username" type="text" class="form-control"
+                                                    id="inputUsername" placeholder="Felhasználónév" required>
+                                                <label for="inputUsername">
+                                                    <i class="fas fa-user me-2"></i>Felhasználónév
+                                                </label>
+                                            </div>
+
+                                            <div class="form-floating mb-4">
+                                                <input name="password" type="password" class="form-control"
+                                                    id="inputPassword" placeholder="Jelszó" required>
+                                                <label for="inputPassword">
+                                                    <i class="fas fa-lock me-2"></i>Jelszó
+                                                </label>
+                                            </div>
+
+                                            <div class="d-grid">
+                                                <button type="submit" class="btn btn-primary btn-lg">
+                                                    <i class="fas fa-sign-in-alt me-2"></i>Belépés
+                                                </button>
+                                            </div>
+                                        </form>
+                    </div>
+                    <div class="card-footer text-center py-3 bg-light">
+                        <small class="text-muted">
+                            Még nincs fiókod?
+                            <a href="/register" class="text-primary text-decoration-none">
+                                Regisztrálj itt!
+                            </a>
+                        </small>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Jelszó</label>
-                    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <button type="submit" class="btn btn-primary">Belépés</button>
-            </form>
+            </div>
         </div>
     </div>
-
 </div>

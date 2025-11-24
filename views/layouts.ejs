@@ -46,16 +46,7 @@
     <div class="content-wrapper">
         <%- include('header') -%>
 
-            <% if (typeof messages !=='undefined' && messages.error) { %>
-                <div class="container">
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <%= messages.error %>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
-                </div>
-                <% } %>
-
-                    <%- body %>
+            <%- body %>
     </div>
 
     <!-- Footer Start -->

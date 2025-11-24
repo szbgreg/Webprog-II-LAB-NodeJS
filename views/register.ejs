@@ -1,21 +1,65 @@
-<div class="container">
-    <div class="row">
-        <div class="col-4 mx-auto">
-            <h1>
-                <%= title %>
-            </h1>
-            <form action="" method="POST">
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Felhasználónév</label>
-                    <input name="username" type="text" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp">
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-1 rounded-lg">
+                    <div class="card-header text-white text-center py-4">
+                        <h3 class="font-weight-light my-2">
+                            <%= title %>
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <!-- Flash üzenetek megjelenítése -->
+                        <% if (typeof messages !=='undefined' && messages.error) { %>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <%= messages.error %>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                            <% } %>
+
+                                <form action="" method="POST">
+                                    <div class="form-floating mb-3">
+                                        <input name="username" type="text" class="form-control" id="inputUsername"
+                                            placeholder="Felhasználónév" required minlength="3">
+                                        <label for="inputUsername">
+                                            Felhasználónév
+                                        </label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input name="password" type="password" class="form-control" id="inputPassword"
+                                            placeholder="Jelszó" required minlength="6">
+                                        <label for="inputPassword">
+                                            Jelszó
+                                        </label>
+                                    </div>
+
+                                    <div class="form-floating mb-4">
+                                        <input name="confirmPassword" type="password" class="form-control"
+                                            id="inputConfirmPassword" placeholder="Jelszó megerősítése" required>
+                                        <label for="inputConfirmPassword">
+                                            Jelszó megerősítése
+                                        </label>
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            Regisztráció
+                                        </button>
+                                    </div>
+                                </form>
+                    </div>
+                    <div class="card-footer text-center py-3 bg-light">
+                        <small class="text-muted">
+                            Van már fiókod?
+                            <a href="/login" class="text-primary text-decoration-none">
+                                Jelentkezz be itt!
+                            </a>
+                        </small>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Jelszó</label>
-                    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <button type="submit" class="btn btn-primary">Elküld</button>
-            </form>
+            </div>
         </div>
     </div>
 </div>
