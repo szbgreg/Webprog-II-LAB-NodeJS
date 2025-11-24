@@ -1,0 +1,9 @@
+<h1>
+  <%= title %>
+</h1>
+
+<% if (user && user.isAdmin) { %>
+  <p>
+    Ezt az oldalt csak az adminisztrátorok érhetik el.
+  </p>
+  <% } %>
