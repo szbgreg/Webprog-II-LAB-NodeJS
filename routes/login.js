@@ -21,6 +21,7 @@ router.post("/", async (req, res, next) => {
     req.session.user = users[0];
     res.redirect("/");
   } else {
+    req.flash("error", "Hibás felhasználónév vagy jelszó!");
     res.redirect("/login");
   }
 });
