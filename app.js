@@ -50,6 +50,7 @@ app.use((req, res, next) => {
   res.locals.isAuth = !!req.session.user;
   res.locals.isAdmin = req.session.user && req.session.user.isAdmin === 1;
   res.locals.userName = req.session.user ? req.session.user.username : '';
+  res.locals.currentPath = req.path;
   next();
 });
 

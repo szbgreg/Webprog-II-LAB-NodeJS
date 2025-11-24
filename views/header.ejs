@@ -9,20 +9,36 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-4 py-lg-0">
-            <ul class="navbar-nav">
-                <a class="nav-item nav-link active" aria-current="page" href="/">Főoldal</a>
-                <a class="nav-item nav-link" href="/users">Felhasználók</a>
-                <% if (isAuth) { %>
-                    <% if (isAdmin) { %>
-                        <a class="nav-item nav-link" href="/admin">Admin</a>
-                        <% } %>
-                            <a class="nav-item nav-link" href="/logout">Kijelentkezés</a>
+            <a class="nav-item nav-link <%= currentPath === '/' ? 'active' : '' %>" href="/">
+                Főoldal
+            </a>
+            <a class="nav-item nav-link <%= currentPath === '/users' ? 'active' : '' %>" href="/users">
+                Felhasználók
+            </a>
 
-                            <% } else { %>
-                                <a class="nav-item nav-link" href="/login">Belépés</a>
-                                <a class="nav-item nav-link" href="/register">Regisztráció</a>
-                                <% } %>
-            </ul>
+            <% if (isAuth) { %>
+                <% if (isAdmin) { %>
+                    <a class="nav-item nav-link <%= currentPath === '/admin' ? 'active' : '' %>" href="/admin">
+                        Admin
+                    </a>
+                    <% } %>
+                        <a class="nav-item nav-link <%= currentPath === '/logout' ? 'active' : '' %>" href="/logout">
+                            Kijelentkezés
+                        </a>
+                        
+                        <span class="nav-item nav-link text-muted">
+                           <i class="fas fa-user me-1"></i>
+                            Üdv, <%= userName %>!
+                        </span>
+                        <% } else { %>
+                            <a class="nav-item nav-link <%= currentPath === '/login' ? 'active' : '' %>" href="/login">
+                                Belépés
+                            </a>
+                            <a class="nav-item nav-link <%= currentPath === '/register' ? 'active' : '' %>"
+                                href="/register">
+                                Regisztráció
+                            </a>
+                            <% } %>
         </div>
         <div class="h-100 d-lg-inline-flex align-items-center d-none">
             <a class="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i
