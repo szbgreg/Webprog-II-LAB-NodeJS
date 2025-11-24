@@ -1,9 +1,78 @@
-<h1>
-  <%= title %>
-</h1>
+<div class="container-fluid hero-header bg-light py-2 mb-5">
+  <div class="container py-5">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <h1 class="display-5 mb-3 animated slideInDown">
+          <span class="text-primary">Admin</span> felület
+        </h1>
+        <p class="text-secondary mb-4">
+          Felhasználók kezelése és jogosultság módosítása
+        </p>
+      </div>
+      <div class="col-lg-6 text-center animated fadeIn">
+        <img class="img-fluid animated pulse infinite" style="animation-duration: 3s; max-height: 260px;"
+          src="/images/admin.png" alt="Sütemény diagram">
+      </div>
+    </div>
+  </div>
+</div>
 
-<% if (user && user.isAdmin) { %>
-  <p>
-    Ezt az oldalt csak az adminisztrátorok érhetik el.
-  </p>
-  <% } %>
+<div class="container mb-5">
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-8">
+      <% if (typeof messages !=='undefined' && messages.error) { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <i class="fas fa-exclamation-triangle me-2"></i>
+          <%= messages.error %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <% } %>
+
+          <% if (typeof messages !=='undefined' && messages.success) { %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <i class="fas fa-check-circle me-2"></i>
+              <%= messages.success %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            <% } %>
+    </div>
+  </div>
+
+  <div class="card shadow-sm bg-light">
+    <div class="card-body">
+      <h3 class="text-primary mb-4">Felhasználók listája</h3>
+
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Név</th>
+            <th>Típus</th>
+            <th>Művelet</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% users.forEach(function(user) { %>
+            <tr>
+              <td>
+                <%= user.id %>
+              </td>
+              <td>
+                <%= user.username %>
+              </td>
+              <td>
+                <% if (user.isAdmin==1) { %>
+                  <span class="badge bg-success">Admin</span>
+                  <% } else { %>
+                    <span class="badge bg-secondary">Felhasználó</span>
+                    <% } %>
+              </td>
+              <td><a href="/admin/users/<%= user.id %>/edit">Módosítás</a></td>
+            </tr>
+            <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
