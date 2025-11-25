@@ -1,0 +1,23 @@
+<!-- Flash Messages View -->
+<div class="container">
+    <div class="row justify-content-center mt-3">
+        <div class="col-lg-8">
+            <% if (typeof messages !=='undefined' && messages.error) { %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <%= messages.error %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                <% } %>
+
+                    <% if (typeof messages !=='undefined' && messages.success) { %>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fas fa-check-circle me-2"></i>
+                            <%= messages.success %>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        <% } %>
+        </div>
+    </div>
+</div>
+<!-- Flash Messages View End-->

@@ -17,29 +17,10 @@
     </div>
 </div>
 
+<%- include('../flash-messages') -%>
 
 <div class="container mt-4 pb-5">
     <h1 class="mb-4">Sütik kezelése</h1>
-    <!-- Flash üzenetek -->
-    <div class="row justify-content-center mt-3">
-        <div class="col-lg-8">
-            <% if (typeof messages !=='undefined' && messages.error) { %>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <i class="fas fa-exclamation-triangle me-2"></i>
-                    <%= messages.error %>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
-                <% } %>
-
-                    <% if (typeof messages !=='undefined' && messages.success) { %>
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <i class="fas fa-check-circle me-2"></i>
-                            <%= messages.success %>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                        <% } %>
-        </div>
-    </div>
     <div class="d-flex justify-content-end mx-auto w-75 my-2">
         <a href="/crud/sutik/new" class="btn btn-primary d-block">Új süti hozzáadása</a>
     </div>

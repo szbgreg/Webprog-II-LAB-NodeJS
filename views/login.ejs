@@ -1,3 +1,6 @@
+
+<%- include('flash-messages') -%>
+
 <div class="container-fluid py-5">
     <div class="container">
         <div class="row justify-content-center">
@@ -9,45 +12,29 @@
                         </h3>
                     </div>
                     <div class="card-body p-4">
-                        <% if (typeof messages !=='undefined' && messages.error) { %>
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <i class="fas fa-exclamation-triangle me-2"></i>
-                                <%= messages.error %>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <form action="" method="POST">
+                            <div class="form-floating mb-3">
+                                <input name="username" type="text" class="form-control" id="inputUsername"
+                                    placeholder="Felhasználónév" required>
+                                <label for="inputUsername">
+                                    <i class="fas fa-user me-2"></i>Felhasználónév
+                                </label>
                             </div>
-                            <% } %>
 
-                                <% if (typeof messages !=='undefined' && messages.success) { %>
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        <i class="fas fa-check-circle me-2"></i>
-                                        <%= messages.success %>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                                    </div>
-                                    <% } %>
+                            <div class="form-floating mb-4">
+                                <input name="password" type="password" class="form-control" id="inputPassword"
+                                    placeholder="Jelszó" required>
+                                <label for="inputPassword">
+                                    <i class="fas fa-lock me-2"></i>Jelszó
+                                </label>
+                            </div>
 
-                                        <form action="" method="POST">
-                                            <div class="form-floating mb-3">
-                                                <input name="username" type="text" class="form-control"
-                                                    id="inputUsername" placeholder="Felhasználónév" required>
-                                                <label for="inputUsername">
-                                                    <i class="fas fa-user me-2"></i>Felhasználónév
-                                                </label>
-                                            </div>
-
-                                            <div class="form-floating mb-4">
-                                                <input name="password" type="password" class="form-control"
-                                                    id="inputPassword" placeholder="Jelszó" required>
-                                                <label for="inputPassword">
-                                                    <i class="fas fa-lock me-2"></i>Jelszó
-                                                </label>
-                                            </div>
-
-                                            <div class="d-grid">
-                                                <button type="submit" class="btn btn-primary btn-lg">
-                                                    <i class="fas fa-sign-in-alt me-2"></i>Belépés
-                                                </button>
-                                            </div>
-                                        </form>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Belépés
+                                </button>
+                            </div>
+                        </form>
                     </div>
                     <div class="card-footer text-center py-3 bg-light">
                         <small class="text-muted">

@@ -17,62 +17,44 @@
   </div>
 </div>
 
-<div class="container mb-5">
-  <div class="row justify-content-center mt-3">
-    <div class="col-lg-8">
-      <% if (typeof messages !=='undefined' && messages.error) { %>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <i class="fas fa-exclamation-triangle me-2"></i>
-          <%= messages.error %>
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-        <% } %>
+<%- include('flash-messages') -%>
 
-          <% if (typeof messages !=='undefined' && messages.success) { %>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              <i class="fas fa-check-circle me-2"></i>
-              <%= messages.success %>
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-            <% } %>
-    </div>
-  </div>
+  <div class="container mb-5">
+    <div class="card shadow-sm bg-light">
+      <div class="card-body">
+        <h3 class="text-primary mb-4">Felhasználók listája</h3>
 
-  <div class="card shadow-sm bg-light">
-    <div class="card-body">
-      <h3 class="text-primary mb-4">Felhasználók listája</h3>
-
-      <table class="table align-middle">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Név</th>
-            <th>Típus</th>
-            <th>Művelet</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <% users.forEach(function(user) { %>
+        <table class="table align-middle">
+          <thead>
             <tr>
-              <td>
-                <%= user.id %>
-              </td>
-              <td>
-                <%= user.username %>
-              </td>
-              <td>
-                <% if (user.isAdmin==1) { %>
-                  <span class="badge bg-success">Admin</span>
-                  <% } else { %>
-                    <span class="badge bg-secondary">Felhasználó</span>
-                    <% } %>
-              </td>
-              <td><a href="/admin/users/<%= user.id %>/edit">Módosítás</a></td>
+              <th>ID</th>
+              <th>Név</th>
+              <th>Típus</th>
+              <th>Művelet</th>
             </tr>
-            <% }); %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+
+            <% users.forEach(function(user) { %>
+              <tr>
+                <td>
+                  <%= user.id %>
+                </td>
+                <td>
+                  <%= user.username %>
+                </td>
+                <td>
+                  <% if (user.isAdmin==1) { %>
+                    <span class="badge bg-success">Admin</span>
+                    <% } else { %>
+                      <span class="badge bg-secondary">Felhasználó</span>
+                      <% } %>
+                </td>
+                <td><a href="/admin/users/<%= user.id %>/edit">Módosítás</a></td>
+              </tr>
+              <% }); %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>

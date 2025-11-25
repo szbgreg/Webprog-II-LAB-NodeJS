@@ -1,18 +1,4 @@
-<div class="container">
-    <div class="row justify-content-center mt-3">
-        <div class="col-lg-6">
-
-            <% if (typeof messages !=='undefined' && messages.error) { %>
-                <div class="container">
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <%= messages.error %>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
-                </div>
-                <% } %>
-        </div>
-    </div>
-</div>
+<%- include('flash-messages') -%>
 
 <!-- Header Start -->
 <div class="container-fluid hero-header bg-light py-5 mb-5">
